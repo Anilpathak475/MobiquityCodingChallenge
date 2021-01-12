@@ -8,7 +8,7 @@ object ProductRepository {
         RetrofitModule.provideProductService()
     }
 
-    suspend fun getProducts() = flow {
+    fun getProducts() = flow {
         //creating a channel to emit values
         emit(DataState.Loading)
         try {

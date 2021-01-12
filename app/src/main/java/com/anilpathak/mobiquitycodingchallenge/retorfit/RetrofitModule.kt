@@ -24,7 +24,7 @@ object RetrofitModule {
 
 
     private fun provideRetrofit(/*gson: Gson, okHttpClient: OkHttpClient*/): Retrofit {
-        return Retrofit.Builder().baseUrl("http://mobcategories.s3")
+        return Retrofit.Builder().baseUrl("http://mobcategories.s3-website-eu-west-1.amazonaws.com/")
             .client(provideOkHttpClient(provideLoggingInterceptor()))
             .addConverterFactory(GsonConverterFactory.create(provideGson()))
             .build()

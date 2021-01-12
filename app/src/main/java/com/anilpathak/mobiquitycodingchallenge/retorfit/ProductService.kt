@@ -5,9 +5,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ProductService {
-    @GET("-website-eu-west-1.amazonaws.com/")
-    fun getProducts():List<Category>
+    @GET(".")
+    suspend fun getProducts():List<Category>
 
-    @GET("website-eu-west-1.amazonaws.com{imagePath}")
-    fun getProductImage(@Path("imagePath") imageName:String):List<Category>
+    @GET("{imagePath}")
+    suspend fun getProductImage(@Path("imagePath") imageName: String): String
 }

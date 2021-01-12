@@ -24,11 +24,9 @@ class MainViewModel() : ViewModel(), CoroutineScope {
 
     @ExperimentalCoroutinesApi
     fun getProducts() {
-        launch {
-            productRepository.getProducts().onEach {
-                _products.value = it
-            }.launchIn(this@MainViewModel)
-        }
+        productRepository.getProducts().onEach {
+            _products.value = it
+        }.launchIn(this)
     }
 
     override fun onCleared() {
