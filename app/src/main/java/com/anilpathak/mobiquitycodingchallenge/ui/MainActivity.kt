@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
         viewModel.getProducts()
         recyclerview_products.adapter = adapter
 
