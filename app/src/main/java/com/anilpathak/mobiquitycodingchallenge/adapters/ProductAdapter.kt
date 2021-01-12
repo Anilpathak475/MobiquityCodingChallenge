@@ -9,22 +9,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.anilpathak.mobiquitycodingchallenge.R
 import com.anilpathak.mobiquitycodingchallenge.retorfit.model.Category
-import com.anilpathak.mobiquitycodingchallenge.retorfit.model.Product
-import kotlin.properties.Delegates
+
 
 class ProductAdapter : ListAdapter<Category, ProductAdapter.ViewHolder>(ProductsDiffUtil()) {
-
-    var data by Delegates.observable(emptyList<Category>()) { _, _, _ ->
-        notifyDataSetChanged()
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
-        holder.bind(item)
+        holder.bind(getItem(position))
     }
 
 
@@ -33,7 +27,6 @@ class ProductAdapter : ListAdapter<Category, ProductAdapter.ViewHolder>(Products
         fun bind(item: Category) {
             val product = itemView.findViewById<TextView>(R.id.txt_product_name)
             product.text = item.name
-
         }
 
         companion object {
